@@ -1,17 +1,123 @@
-# React + Vite
+⚽ Passa a Bola – Monitoramento IoT do Campo de Futebol Feminino
+📘 Descrição do Projeto
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O projeto Passa a Bola – IoT tem como objetivo demonstrar, de forma prática, a aplicação de tecnologias de Internet das Coisas (IoT) no contexto do futebol feminino.
 
-Currently, two official plugins are available:
+A proposta é integrar sensores a uma plataforma web para monitorar as condições ambientais do campo de futebol, coletando informações de temperatura, umidade e luminosidade do campo de futebol.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Esses dados podem ser utilizados para:
 
-## React Compiler
+Avaliar a qualidade do gramado e das condições de jogo;
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Monitorar segurança e conforto térmico para as atletas;
 
-## Expanding the ESLint configuration
+Oferecer informações em tempo real no site da comunidade Passa a Bola, integrando tecnologia e esporte.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# Sprint-4-Edge
+🌡️ Grandezas Monitoradas
+Sensor	Grandeza	Descrição
+DHT22	Temperatura (°C)	Mede a temperatura ambiente do campo
+	Umidade Relativa (%)	Mede o nível de umidade do ar
+LDR (Light Dependent Resistor)	Luminosidade (%)	Mede a intensidade de luz incidente no campo
+🧠 Arquitetura IoT
+
+A arquitetura do projeto é composta pelos seguintes elementos:
+
+ESP32 (dispositivo IoT)
+
+Faz a leitura dos sensores DHT22 e LDR;
+
+Envia os dados via protocolo MQTT;
+
+Conectado à rede Wi-Fi e à nuvem.
+
+Broker MQTT (MyMQTT)
+
+Responsável pela publicação e subscrição dos dados dos sensores;
+
+Canal de comunicação entre o dispositivo e as plataformas de visualização.
+
+Plataforma de Visualização (Node-RED)
+
+Recebe as mensagens publicadas pelo ESP32;
+
+Exibe os valores de temperatura, umidade e luminosidade em tempo real;
+
+Pode gerar dashboards e alertas visuais.
+
+⚙️ Tecnologias Utilizadas
+
+Microcontrolador: ESP32 DevKit V1
+
+Simulação: Wokwi IoT Simulator
+
+Protocolo de Comunicação: MQTT
+
+Broker: HiveMQ Cloud (broker.hivemq.com:1883)
+
+Linguagem: C++ (Arduino Framework)
+
+Sensores:
+
+DHT22 (Temperatura e Umidade)
+
+LDR + Resistor 10kΩ (Luminosidade)
+
+🧩 Montagem dos Sensores
+🔹 DHT22
+Pino	Conexão
+VCC	3.3V
+GND	GND
+DATA	GPIO 15
+🔹 LDR + Resistor 10kΩ (divisor de tensão)
+Pino	Conexão
+LDR	Entre 3.3V e ponto central
+Resistor 10kΩ	Entre ponto central e GND
+Ponto central	GPIO 34 (entrada analógica)
+📡 Comunicação MQTT
+
+O ESP32 envia os dados a cada 5 segundos para o tópico:
+
+passabola/sensores
+
+
+Mensagem publicada (em formato JSON):
+
+{
+  "temperatura": 27.5,
+  "umidade": 55.3,
+  "luminosidade": 76.2
+}
+
+🖥️ Visualização dos Dados
+🔹 Opção 1: MyMQTT
+
+🔹 Opção 2: Node-RED Dashboard
+
+
+🔍 Conclusão
+
+O Passa a Bola – IoT demonstra a integração entre tecnologia, esporte e comunidade,
+explorando como a Internet das Coisas pode enriquecer a experiência e o desempenho no futebol feminino.
+
+Este projeto pode ser expandido futuramente para:
+
+Monitoramento de presença de público via sensores de movimento;
+
+Controle automatizado de irrigação e iluminação;
+
+Integração total com o site da comunidade Passa a Bola.
+
+👩‍💻 Equipe
+
+[Guilherme Moura Gama] - [RM]: 562162
+
+[Guilherme Ruiz Costa] - [RM]: 563236
+
+[João Batista Lima Neto] - [RM]: 563426
+
+[Júlio César Augusto Vieira] - [RM]: 563366
+
+
+Curso: Engenharia de Software / Edge Computing
+
+Instituição: [FIAP]
