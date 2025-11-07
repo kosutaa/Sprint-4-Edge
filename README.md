@@ -111,9 +111,9 @@ Este projeto pode ser expandido futuramente para:
 
 ## 👩‍💻 Equipe
 - [Guilherme Moura Gama] | [RM]: 562162
-- [Guilherme Moura Gama] | [RM]: 563236
-- [Guilherme Moura Gama] | [RM]: 563426
-- [Guilherme Moura Gama] | [RM]:  563366
+- [Guilherme Ruiz Costa] | [RM]: 563236
+- [João Batista Lima Neto] | [RM]: 563426
+- [Júlio César Augusto Vieira] | [RM]:  563366
 - 
 - Curso: **Engenharia de Software / Edge Computing**
 - Instituição: [FIAP]
